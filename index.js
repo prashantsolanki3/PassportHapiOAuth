@@ -49,7 +49,7 @@ var HapiPassport = function () {
                 done(null, profile.emails[0].value);
             }));
         } else if (strategy === 'FacebookStrategy') {
-            this._provider = 'windowslive';
+            this._provider = 'facebook';
             _passport2.default.use(new _passportFacebook.Strategy(config, function (accessToken, refreshToken, profile, done) {
                 done(null, profile.emails[0].value);
             }));
