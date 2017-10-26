@@ -17,7 +17,7 @@ $ npm install passport-hapi-oauth
 
 *Instantiation*
 ```
-import HapiPassportOAuth from 'passport-hapi-oauth';
+import HapiPassport from 'passport-hapi-oauth';
 
 const googleOAuth = new HapiPassport('GoogleStrategy', {
 	clientID: 'YOUR_CLIENTID',
