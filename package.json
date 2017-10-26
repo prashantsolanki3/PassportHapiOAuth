@@ -1,0 +1,31 @@
+{
+  "name": "passport-hapi-oauth",
+  "version": "1.0.0",
+  "description": "A Simple wrapper to work as a connector between [passport js OAuth strategies](http://www.passportjs.org/) and the [hapi request api](https://hapijs.com/api).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soheilhm/PassportHapiOAuth.git"
+  },
+  "keywords": [
+    "passport",
+    "hapi",
+    "oauth",
+    "sso"
+  ],
+  "author": "Soheil Hajimohammadi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/soheilhm/PassportHapiOAuth/issues"
+  },
+  "homepage": "https://github.com/soheilhm/PassportHapiOAuth#readme",
+  "dependencies": {
+    "passport": "^0.4.0",
+    "passport-facebook": "^2.1.1",
+    "passport-google-oauth": "^1.0.0",
+    "passport-windowslive": "^1.0.2"
+  }
+}
