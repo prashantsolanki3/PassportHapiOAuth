@@ -44,10 +44,12 @@ const facebookOAuth = new HapiPassport('FacebookStrategy', {
 server.route({
     method: 'GET',
     path: '/auth/google',
-    handler: function (request, reply) {
+    handler: function(request, reply) {
         googleOAuth.authenticate(req, (url) => {
-	    // set reply and then redirect
-	    reply({status: 'success'}).redirect(url);
+            // set reply and then redirect
+            reply({
+                status: 'success'
+            }).redirect(url);
         });
     }
 });
@@ -57,16 +59,16 @@ server.route({
 server.route({
     method: 'GET',
     path: '/auth/google/login/callback',
-    handler: function (request, reply) {
+    handler: function(request, reply) {
         googleOAuth.authenticateCallBack(req, (err, email) => {
             if (err) {
-		// handle error
-		...                                            
+                // handle error
+                ...
             } else {
-		// authprovider login successful 
-		// continue to authenticate user by their email
-		...
-	    }				         
+                // AuthProvider login successful 
+                // continue to authenticate user by their email
+                ...
+            }
         });
     }
 });
