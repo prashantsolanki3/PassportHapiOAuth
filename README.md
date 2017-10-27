@@ -60,10 +60,10 @@ server.route({
     handler: function (request, reply) {
         googleOAuth.authenticateCallBack(req, (err, email) => {
             if (err) {
-	        // handle error
+		// handle error
 		...                                            
             } else {
-	        // authprovider login successful 
+		// authprovider login successful 
 		// continue to authenticate user by their email
 		...
 	    }				         
