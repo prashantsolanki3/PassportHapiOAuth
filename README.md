@@ -44,7 +44,7 @@ const facebookOAuth = new HapiPassport('FacebookStrategy', {
 server.route({
     method: 'GET',
     path: '/auth/google',
-    handler: function(request, reply) {
+    handler: (request, reply) => {
         googleOAuth.authenticate(req, (url) => {
             // set reply and then redirect
             reply({
@@ -59,15 +59,13 @@ server.route({
 server.route({
     method: 'GET',
     path: '/auth/google/login/callback',
-    handler: function(request, reply) {
+    handler: (request, reply) => {
         googleOAuth.authenticateCallBack(req, (err, email) => {
             if (err) {
                 // handle error
-                ...
             } else {
-                // AuthProvider login successful 
+                // AuthProvider login successful
                 // continue to authenticate user by their email
-                ...
             }
         });
     }
