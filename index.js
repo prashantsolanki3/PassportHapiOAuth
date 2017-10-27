@@ -33,10 +33,10 @@ var HapiPassport = function () {
         _classCallCheck(this, HapiPassport);
 
         if (typeof strategy !== 'string' || !['GoogleStrategy', 'OutlookStrategy', 'FacebookStrategy'].includes(strategy)) {
-            throw new Error('This module requires a valid strategy upon instantiation, please use one of the following: \'GoogleStrategy\' or \'OutlookStrategy\'');
+            throw new Error('This module requires a valid strategy upon instantiation.');
         }
         if ((typeof config === 'undefined' ? 'undefined' : _typeof(config)) !== 'object') {
-            throw new Error('This module requires a valid configuration upon instantiation');
+            throw new Error('This module requires a valid configuration upon instantiation.');
         }
         if (strategy === 'GoogleStrategy') {
             this._provider = 'google';
