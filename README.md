@@ -46,8 +46,8 @@ server.route({
     path: '/auth/google',
     handler: function (request, reply) {
         googleOAuth.authenticate(req, (url) => {
-			// set reply and then redirect
-			reply({status: 'success'}).redirect(url);
+	    // set reply and then redirect
+	    reply({status: 'success'}).redirect(url);
         });
     }
 });
@@ -60,12 +60,13 @@ server.route({
     handler: function (request, reply) {
         googleOAuth.authenticateCallBack(req, (err, email) => {
             if (err) {
-							// handle error
-							...                                            
+	        // handle error
+		...                                            
             } else {
-							// login successful, authenticate user by email
-							...
-			}				         
+	        // authprovider login successful 
+		// continue to authenticate user by their email
+		...
+	    }				         
         });
     }
 });
