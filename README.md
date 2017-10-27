@@ -10,7 +10,7 @@ it is configured to work with following OAuth providers: `Google`, `Outlook` and
 ### Install
 
 ```
-$ npm install passport-hapi-oauth
+$ npm install passport-hapi-oauth --save
 ```
 
 ### Usage
@@ -60,14 +60,13 @@ server.route({
     handler: function (request, reply) {
         googleOAuth.authenticateCallBack(req, (err, email) => {
             if (err) {
-				// handle error (err)
-				...                                            
+							// handle error
+							...                                            
             } else {
-				// login successful, autheticate user in the app by their email
-				...
+							// login successful, authenticate user by email
+							...
 			}				         
-        }); 
+        });
     }
 });
 ```
-

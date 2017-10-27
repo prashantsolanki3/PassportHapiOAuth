@@ -32,7 +32,7 @@ var HapiPassport = function () {
     function HapiPassport(strategy, config) {
         _classCallCheck(this, HapiPassport);
 
-        if (typeof strategy !== 'string' || !['GoogleStrategy', 'OutlookStrategy'].includes(strategy)) {
+        if (typeof strategy !== 'string' || !['GoogleStrategy', 'OutlookStrategy', 'FacebookStrategy'].includes(strategy)) {
             throw new Error('This module requires a valid strategy upon instantiation, please use one of the following: \'GoogleStrategy\' or \'OutlookStrategy\'');
         }
         if ((typeof config === 'undefined' ? 'undefined' : _typeof(config)) !== 'object') {
