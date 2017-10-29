@@ -31,13 +31,6 @@ var HapiPassport = function () {
      */
     function HapiPassport(strategy, config) {
         _classCallCheck(this, HapiPassport);
-
-        if (typeof strategy !== 'string' || !['GoogleStrategy', 'OutlookStrategy', 'FacebookStrategy'].includes(strategy)) {
-            throw new Error('This module requires a valid strategy upon instantiation.');
-        }
-        if ((typeof config === 'undefined' ? 'undefined' : _typeof(config)) !== 'object') {
-            throw new Error('This module requires a valid configuration upon instantiation.');
-        }
         if (strategy === 'GoogleStrategy') {
             this._provider = 'google';
             _passport2.default.use(new _passportGoogleOauth.OAuth2Strategy(config, function (accessToken, refreshToken, profile, done) {
@@ -51,7 +44,7 @@ var HapiPassport = function () {
         } else if (strategy === 'FacebookStrategy') {
             this._provider = 'facebook';
             _passport2.default.use(new _passportFacebook.Strategy(config, function (accessToken, refreshToken, profile, done) {
-                done(null, profile.emails[0].value);
+                done(null, profile.id);
             }));
         }
         _passport2.default.serializeUser(function (user, cb) {

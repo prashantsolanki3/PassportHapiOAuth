@@ -1,10 +1,11 @@
 Passport Hapi OAuth
 ===================
 
-A Simple wrapper to work as a connector between [passport js OAuth strategies](http://www.passportjs.org/) and the [hapi request api](https://hapijs.com/api).
+A simple wrapper to work as a connector between [passport js OAuth strategies](http://www.passportjs.org/) and the [hapi request api](https://hapijs.com/api).
 
-it is configured to work with following OAuth providers: `Google`, `Outlook` and `Facebook`.
+It is configured to work with following OAuth providers: `Google`, `Outlook` and `Facebook`.
 
+Make sure your app has enough permissions for OAuth login (e.g. Any application that calls Google APIs needs to enable APIs in the API Console).
 
 
 ### Install
@@ -22,17 +23,17 @@ import HapiPassport from 'passport-hapi-oauth';
 const googleOAuth = new HapiPassport('GoogleStrategy', {
 	clientID: 'YOUR_CLIENTID',
 	clientSecret: 'YOUR_CLIENTSECRET',
-	callbackURL: 'YOUR_CALLBACKURL'
+	callbackURL: 'YOUR_CALLBACK_URL'
 });
 const outlookOAuth = new HapiPassport('OutlookStrategy', {
 	clientID: 'YOUR_CLIENTID',
 	clientSecret: 'YOUR_CLIENTSECRET',
-	callbackURL: 'YOUR_CALLBACKURL'
+	callbackURL: 'YOUR_CALLBACK_URL'
 });
 const facebookOAuth = new HapiPassport('FacebookStrategy', {
-	clientID: 'YOUR_CLIENTID',
-	clientSecret: 'YOUR_CLIENTSECRET',
-	callbackURL: 'YOUR_CALLBACKURL'
+	clientID: 'YOUR_APP_ID',
+	clientSecret: 'YOUR_APP_SECRET',
+	callbackURL: 'YOUR_CALLBACK_URL'
 });
 
 ```
@@ -45,7 +46,7 @@ server.route({
     method: 'GET',
     path: '/auth/google',
     handler: (request, reply) => {
-        googleOAuth.authenticate(req, (url) => {
+        googleOAuth.authenticate(request, (url) => {
             // set reply and then redirect
             reply({
                 status: 'success'
@@ -60,12 +61,13 @@ server.route({
     method: 'GET',
     path: '/auth/google/login/callback',
     handler: (request, reply) => {
-        googleOAuth.authenticateCallBack(req, (err, email) => {
+        googleOAuth.authenticateCallBack(request, (err, email) => {
             if (err) {
                 // handle error
             } else {
                 // AuthProvider login successful
-                // continue to authenticate user by their email
+                // continue to authenticate user by email
+								// (email is an id for FacebookStrategy)
             }
         });
     }
