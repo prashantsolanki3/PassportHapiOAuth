@@ -67,7 +67,7 @@ server.route({
             } else {
                 // AuthProvider login successful
                 // continue to authenticate user by email
-								// (email is an id for FacebookStrategy)
+                // (email is an id for FacebookStrategy)
             }
         });
     }
