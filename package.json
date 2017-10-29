@@ -1,6 +1,6 @@
 {
   "name": "passport-hapi-oauth",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "A Simple wrapper to work as a connector between [passport js OAuth strategies](http://www.passportjs.org/) and the [hapi request api](https://hapijs.com/api).",
   "main": "index.js",
   "scripts": {
