@@ -31,20 +31,22 @@ var HapiPassport = function () {
      */
     function HapiPassport(strategy, config) {
         _classCallCheck(this, HapiPassport);
+        var scopeObj = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+        var advanced = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
         if (strategy === 'GoogleStrategy') {
             this._provider = 'google';
             _passport2.default.use(new _passportGoogleOauth.OAuth2Strategy(config, function (accessToken, refreshToken, profile, done) {
-                done(null, profile.emails[0].value);
+                done(null, advanced ? profile : profile.emails[0].value);
             }));
         } else if (strategy === 'OutlookStrategy') {
             this._provider = 'windowslive';
             _passport2.default.use(new _passportWindowslive.Strategy(config, function (accessToken, refreshToken, profile, done) {
-                done(null, profile.emails[0].value);
+                done(null, advanced ? profile : profile.emails[0].value);
             }));
         } else if (strategy === 'FacebookStrategy') {
             this._provider = 'facebook';
             _passport2.default.use(new _passportFacebook.Strategy(config, function (accessToken, refreshToken, profile, done) {
-                done(null, profile.id);
+                done(null, advanced ? profile : profile.id);
             }));
         }
         _passport2.default.serializeUser(function (user, cb) {
@@ -54,6 +56,7 @@ var HapiPassport = function () {
             cb(null, obj);
         });
         this._strategy = strategy;
+        this._scope = scopeObj && scopeObj.scope;
     }
 
     _createClass(HapiPassport, [{
@@ -65,11 +68,11 @@ var HapiPassport = function () {
                 }
             };
             if (this._strategy === 'GoogleStrategy') {
-                _passport2.default.authenticate('google', { scope: ['profile', 'email'] }).call(this, req, res, function () {});
+                _passport2.default.authenticate('google', { scope: this._scope || ['profile', 'email'] }).call(this, req, res, function () {});
             } else if (this._strategy === 'OutlookStrategy') {
-                _passport2.default.authenticate('windowslive', { scope: ['wl.signin', 'wl.basic', 'wl.emails'] }).call(this, req, res, function () {});
+                _passport2.default.authenticate('windowslive', { scope: this._scope || ['wl.signin', 'wl.basic', 'wl.emails'] }).call(this, req, res, function () {});
             } else if (this._strategy === 'FacebookStrategy') {
-                _passport2.default.authenticate('facebook').call(this, req, res, function () {});
+                _passport2.default.authenticate('facebook', { scope: this._scope || [] }).call(this, req, res, function () {});
             }
         }
     }, {
