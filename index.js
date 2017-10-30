@@ -86,7 +86,7 @@ var HapiPassport = function () {
             };
             _passport2.default.authenticate(this._provider, {}).call(this, request, {}, function (err) {
                 if (err) {
-                    callback('Failed to authenticate user.');
+                    callback(err);
                 }
             });
         }
