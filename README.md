@@ -21,9 +21,19 @@ $ npm install passport-hapi-oauth --save
 
 `const oAuthObject = new HapiPassport(strategy, config, scope = false, advanced = false);`
 
-The first argument - `strategy` - is one of these three strings: *GoogleStrategy*, *OutlookStrategy* or *FacebookStrategy*
-The second argument - `config` - is the application configuration data available in the OAuth provider console.
-The last 2 arguments are optional and are for advanced use-cases and can be skipped: `scope` the scope of access and if set, should be a key value pair object in this form: `{ scope: ['email', 'user_likes'] }` and if you pass `advanced` as true, you will get all user data available based on the scope and permissions; otherwise if not set or set to false, only user email or id will be available in the userData upon successful OAuth Authentication.
+The first argument - `strategy` - is one of these three strings: 
+**GoogleStrategy**, **OutlookStrategy** or **FacebookStrategy**
+The second argument - `config` - is the application configuration data available in the OAuth provider console:
+```
+{
+    clientID: 'YOUR_APP_ID',
+    clientSecret: 'YOUR_APP_SECRET',
+    callbackURL: 'YOUR_CALLBACK_URL'
+}
+```
+The last 2 arguments are optional and are for advanced use-cases and can be skipped: `scope` is the scope of access and if set, should be a key value pair object in this form: 
+`{ scope: ['email', 'user_likes'] }` 
+And if you pass `advanced` as true, you will get all user data available based on the scope and permissions; otherwise if not set or set to false, only user email or id will be available in the userData upon successful OAuth Authentication.
 
 Read OAuth provider permissions to understand what scopes can be used.
 
