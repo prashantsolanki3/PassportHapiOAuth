@@ -38,7 +38,7 @@ const googleOAuth = new HapiPassport('GoogleStrategy', {
 });
 
 // advanced
-var googleOAuth = new _passportHapiOauth2.default('GoogleStrategy', {
+const googleOAuth = new HapiPassport('GoogleStrategy', {
 	clientID: 'YOUR_APP_ID',
 	clientSecret: 'YOUR_APP_SECRET',
 	callbackURL: 'YOUR_CALLBACK_URL'
