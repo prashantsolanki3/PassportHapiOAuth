@@ -24,15 +24,15 @@ import HapiPassport from 'passport-hapi-oauth';
 
 // simple
 const googleOAuth = new HapiPassport('GoogleStrategy', {
-	clientID: 'YOUR_CLIENTID',
-	clientSecret: 'YOUR_CLIENTSECRET',
+	clientID: 'YOUR_CLIENT_ID',
+	clientSecret: 'YOUR_CLIENT_SECRET',
 	callbackURL: 'YOUR_CALLBACK_URL'
 });
 
 // advanced
 const googleOAuth = new HapiPassport('GoogleStrategy', {
-	clientID: 'YOUR_APP_ID',
-	clientSecret: 'YOUR_APP_SECRET',
+	clientID: 'YOUR_CLIENT_ID',
+	clientSecret: 'YOUR_CLIENT_SECRET',
 	callbackURL: 'YOUR_CALLBACK_URL'
 }, {scope: ['email', 'profile', 'openid']});
 
