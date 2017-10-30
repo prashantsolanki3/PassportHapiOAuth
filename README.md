@@ -19,25 +19,14 @@ $ npm install passport-hapi-oauth --save
 ***Instantiation***
 
 
-`const oAuthObject = new HapiPassport(strategy, config, scope = false, advanced = false);`
+| arguments        | values                                                                                       |
+|------------------|----------------------------------------------------------------------------------------------|
+| strategy         | **GoogleStrategy**, **OutlookStrategy** or **FacebookStrategy**                              |
+| config           | {clientID: 'YOUR_APP_ID', clientSecret: 'YOUR_APP_SECRET', callbackURL: 'YOUR_CALLBACK_URL'} |
+| scope (optional*)| { scope: [ 'SCOPE_1' , 'SCOPE_2' , ... ] }                                                   |
 
-The first argument - `strategy` - is one of these three strings: 
-**GoogleStrategy**, **OutlookStrategy** or **FacebookStrategy**
-The second argument - `config` - is the application configuration data available in the OAuth provider console:
-```
-{
-    clientID: 'YOUR_APP_ID',
-    clientSecret: 'YOUR_APP_SECRET',
-    callbackURL: 'YOUR_CALLBACK_URL'
-}
-```
-The last 2 arguments are optional and are for advanced use-cases and can be skipped: `scope` is the scope of access and if set, should be a key value pair object in this form: 
-`{ scope: ['email', 'user_likes'] }` 
-And if you pass `advanced` as true, you will get all user data available based on the scope and permissions; otherwise if not set or set to false, only user email or id will be available in the userData upon successful OAuth Authentication.
+\*Read OAuth provider permissions to understand what scopes can be used.
 
-Read OAuth provider permissions to understand what scopes can be used.
-
-e.g.:
 ```
 import HapiPassport from 'passport-hapi-oauth';
 
@@ -49,11 +38,11 @@ const googleOAuth = new HapiPassport('GoogleStrategy', {
 });
 
 // advanced
-const facebookOAuth = new HapiPassport('FacebookStrategy', {
+var googleOAuth = new _passportHapiOauth2.default('GoogleStrategy', {
 	clientID: 'YOUR_APP_ID',
 	clientSecret: 'YOUR_APP_SECRET',
 	callbackURL: 'YOUR_CALLBACK_URL'
-}, { scope: ['email', 'user_likes'] }, true);
+}, { scope: ['email', 'profile', 'openid'] }, true);
 
 ```
 

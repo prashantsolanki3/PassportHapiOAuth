@@ -32,7 +32,7 @@ var HapiPassport = function () {
     function HapiPassport(strategy, config) {
         _classCallCheck(this, HapiPassport);
         var scopeObj = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-        var advanced = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+        var advanced = typeof scopeObj !== "undefined";
         if (strategy === 'GoogleStrategy') {
             this._provider = 'google';
             _passport2.default.use(new _passportGoogleOauth.OAuth2Strategy(config, function (accessToken, refreshToken, profile, done) {
