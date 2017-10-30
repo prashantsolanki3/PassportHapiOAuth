@@ -5,7 +5,7 @@ A simple wrapper to work as a connector between [passport js OAuth strategies](h
 
 It is configured to work with following OAuth providers: `Google`, `Outlook` and `Facebook`.
 
-Make sure your app has enough permissions for OAuth login (e.g. Any application that calls Google APIs needs to enable APIs in the API Console).
+>Make sure your app has enough permissions for OAuth login (e.g. Any application that calls Google APIs needs to enable APIs in the API Console).
 
 
 ### Install
@@ -15,19 +15,11 @@ $ npm install passport-hapi-oauth --save
 ```
 
 ### Usage
-
+___
 ***Instantiation***
 
 
-| arguments        | values                                                                                       |
-|------------------|----------------------------------------------------------------------------------------------|
-| strategy         | **GoogleStrategy**, **OutlookStrategy** or **FacebookStrategy**                              |
-| config           | {clientID: 'YOUR_APP_ID', clientSecret: 'YOUR_APP_SECRET', callbackURL: 'YOUR_CALLBACK_URL'} |
-| scope (optional*)| { scope: [ 'SCOPE_1' , 'SCOPE_2' , ... ] }                                                   |
-
-\*Read OAuth provider permissions to understand what scopes can be used.
-
-```
+```javascript 
 import HapiPassport from 'passport-hapi-oauth';
 
 // simple
@@ -45,11 +37,19 @@ const googleOAuth = new HapiPassport('GoogleStrategy', {
 }, { scope: ['email', 'profile', 'openid'] });
 
 ```
+|     arguments     |                                             values                                            |
+|:-----------------:|:---------------------------------------------------------------------------------------------:|
+|      strategy     | **GoogleStrategy**, **OutlookStrategy** or  **FacebookStrategy**                              |
+|       config      | { clientID: 'YOUR_APP_ID', clientSecret: 'YOUR_APP_SECRET', callbackURL: 'YOUR_CALLBACK_URL'} |
+| scope  (optional) | { scope: [ 'SCOPE_1' , 'SCOPE_2' , ... ] }                                                    |
 
+\*Read OAuth provider permissions to understand what scopes can be used.
+
+___
 *Route Hanlders*
 
 **1st route to sign in:**
-```
+```javascript
 server.route({
     method: 'GET',
     path: '/auth/google',
@@ -64,7 +64,7 @@ server.route({
 });
 ```
 **2nd route to handle callbacks:**
-```
+```javascript
 server.route({
     method: 'GET',
     path: '/auth/google/login/callback',
