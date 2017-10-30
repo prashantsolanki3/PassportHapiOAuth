@@ -42,7 +42,7 @@ var googleOAuth = new _passportHapiOauth2.default('GoogleStrategy', {
 	clientID: 'YOUR_APP_ID',
 	clientSecret: 'YOUR_APP_SECRET',
 	callbackURL: 'YOUR_CALLBACK_URL'
-}, { scope: ['email', 'profile', 'openid'] }, true);
+}, { scope: ['email', 'profile', 'openid'] });
 
 ```
 
