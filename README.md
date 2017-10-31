@@ -1,7 +1,6 @@
 Passport Hapi OAuth
 ===================
 [![NPM](https://nodei.co/npm/passport-hapi-oauth.png?downloads=true&downloadRank=true)](https://nodei.co/npm/passport-hapi-oauth/)
-[![npm version](https://badge.fury.io/js/passport-hapi-oauth.svg)](https://badge.fury.io/js/passport-hapi-oauth)
 
 A simple wrapper to work as a connector between [passport js OAuth strategies](http://www.passportjs.org/) and the [hapi request api](https://hapijs.com/api).
 
