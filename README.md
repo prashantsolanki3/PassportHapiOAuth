@@ -40,8 +40,8 @@ const googleOAuth = new HapiPassport('GoogleStrategy', {
 ```
 |     arguments     |                                             values                                            |
 |:-----------------:|:---------------------------------------------------------------------------------------------:|
-|      strategy     | **GoogleStrategy**, **OutlookStrategy** or  **FacebookStrategy**                              |
-|       config      | { clientID: 'YOUR_APP_ID', clientSecret: 'YOUR_APP_SECRET', callbackURL: 'YOUR_CALLBACK_URL'} |
+| strategy(required)| **GoogleStrategy**, **OutlookStrategy** or  **FacebookStrategy**                              |
+| config  (required)| { clientID: 'YOUR_APP_ID', clientSecret: 'YOUR_APP_SECRET', callbackURL: 'YOUR_CALLBACK_URL'} |
 | scope* (optional) | { scope: [ 'SCOPE_1' , 'SCOPE_2' , ... ] }                                                    |
 
 \*Read OAuth provider permissions to understand what scopes can be used.
