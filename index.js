@@ -65,6 +65,9 @@ var HapiPassport = function () {
             var res = {
                 setHeader: function setHeader(data, url) {
                     callback(url);
+                },
+                end: function end() {
+                    callback(null);
                 }
             };
             if (this._strategy === 'GoogleStrategy') {
